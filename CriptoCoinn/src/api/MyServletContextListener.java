@@ -91,18 +91,49 @@ public class MyServletContextListener implements ServletContextListener {
    double variacaoSemanal = 0;
    double variacaoMensal = 0;
    
+
+   double variacaoDiariaPorcentagem = 0;
+   double variacaoSemanalPorcentagem = 0;
+   double variacaoMensalPorcentagem = 0;
+   
+   String analise;
+   
    try {
 	   variacaoDiaria = calcularVariacao(Cardano.daily_values.prices.get(0)[1],Cardano.daily_values.prices.get(Cardano.daily_values.prices.size()-1)[1]);
 	   variacaoSemanal = calcularVariacao(Cardano.weekly_values.prices.get(0)[1],Cardano.weekly_values.prices.get(Cardano.weekly_values.prices.size()-1)[1]);
 	   variacaoMensal = calcularVariacao(Cardano.monthly_values.prices.get(0)[1],Cardano.monthly_values.prices.get(Cardano.monthly_values.prices.size()-1)[1]);
+	   
+	   variacaoDiariaPorcentagem = calcularVariacaoPorcentagem(Cardano.daily_values.prices.get(0)[1],Cardano.daily_values.prices.get(Cardano.daily_values.prices.size()-1)[1]);
+	   variacaoSemanalPorcentagem = calcularVariacaoPorcentagem(Cardano.weekly_values.prices.get(0)[1],Cardano.weekly_values.prices.get(Cardano.weekly_values.prices.size()-1)[1]);
+	   variacaoMensalPorcentagem = calcularVariacaoPorcentagem(Cardano.monthly_values.prices.get(0)[1],Cardano.monthly_values.prices.get(Cardano.monthly_values.prices.size()-1)[1]);
 
    }finally{
 	   System.out.println(variacaoDiaria);
 	   System.out.println(variacaoSemanal);
 	   System.out.println(variacaoMensal);
+	   
+	   System.out.println(variacaoDiariaPorcentagem + "%");
+	   System.out.println(variacaoSemanalPorcentagem + "%");
+	   System.out.println(variacaoMensalPorcentagem + "%");
    }
    
-		 
+   if(variacaoMensalPorcentagem <= -10 && variacaoMensalPorcentagem >= -20 && variacaoDiariaPorcentagem < 10) {
+	   analise = "HORA DE COMPRAR/ANALISAR";
+   } else if(variacaoMensalPorcentagem >= 5 && variacaoMensalPorcentagem <= 10 && variacaoDiariaPorcentagem > 5) {
+	   analise = "HORA DE COMPRAR";
+   } else if(variacaoMensalPorcentagem >= 30 && variacaoDiariaPorcentagem <= -20) {
+	   analise = "HORA DE COMPRAR";
+   } else if(variacaoMensalPorcentagem <= -10 && variacaoMensalPorcentagem >= -20 && variacaoDiariaPorcentagem >= 20) {
+	   analise = "HORA DE ANALISAR";
+   } else if(variacaoMensalPorcentagem <= -20 && variacaoDiariaPorcentagem >= 50) {
+	   analise = "HORA DE COMPRAR";
+   } else if(variacaoMensalPorcentagem >= 20 && variacaoDiariaPorcentagem >= 50) {
+	   analise = "HORA DE VENDER/ANALISAR";
+   } else {
+	   analise = "HORA DE ANALISAR";
+   }
+
+   System.out.println(analise);
    
    
  }
@@ -112,6 +143,14 @@ public class MyServletContextListener implements ServletContextListener {
 	 
 	 variacao = valorFinal - valorInicial;
 	 
+	 return variacao;
+ }
+ 
+ public double calcularVariacaoPorcentagem(double valorInicial, double valorFinal) {
+	 double variacao = 0;
+	 
+	 variacao = ((valorFinal / valorInicial) * 100) - 100;
+	
 	 return variacao;
  }
 
