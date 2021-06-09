@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 
 public class coinGecko {
+
 	
 	String apiretorno;
 
@@ -59,6 +60,96 @@ public class coinGecko {
 		String result;
 		
 		URL url = new URL("https://api.coingecko.com/api/v3/coins/cardano/market_chart/range?vs_currency=usd&from=" + timeFrom + "&to=" + timeTo);
+		InputStream is = url.openStream();
+		try {
+		  /* Now read the retrieved document from the stream. */
+
+			Scanner s = new Scanner(is).useDelimiter("\\A");
+			result = s.hasNext() ? s.next() : "";
+			s.close();
+			
+		} finally {
+		  is.close();
+		}
+		
+		
+		return result ;
+	}
+	
+	public String binanceMarketValues(long timeFrom, long timeTo) throws IOException {
+		
+
+		String result;
+		
+		URL url = new URL("https://api.coingecko.com/api/v3/coins/binancecoin/market_chart/range?vs_currency=usd&from=" + timeFrom + "&to=" + timeTo);
+		InputStream is = url.openStream();
+		try {
+		  /* Now read the retrieved document from the stream. */
+
+			Scanner s = new Scanner(is).useDelimiter("\\A");
+			result = s.hasNext() ? s.next() : "";
+			s.close();
+			
+		} finally {
+		  is.close();
+		}
+		
+		
+		return result ;
+	}
+	
+	public String chillizMarketValues(long timeFrom, long timeTo) throws IOException {
+		
+
+		String result;
+		
+		URL url = new URL("https://api.coingecko.com/api/v3/coins/chiliz/market_chart/range?vs_currency=usd&from=" + timeFrom + "&to=" + timeTo);
+		InputStream is = url.openStream();
+		try {
+		  /* Now read the retrieved document from the stream. */
+
+			Scanner s = new Scanner(is).useDelimiter("\\A");
+			result = s.hasNext() ? s.next() : "";
+			s.close();
+			
+		} finally {
+		  is.close();
+		}
+		
+		
+		return result ;
+	}
+
+	
+	public String polkadotMarketValues(long timeFrom, long timeTo) throws IOException {
+		
+
+		String result;
+		
+		URL url = new URL("https://api.coingecko.com/api/v3/coins/polkadot/market_chart/range?vs_currency=usd&from=" + timeFrom + "&to=" + timeTo);
+		InputStream is = url.openStream();
+		try {
+		  /* Now read the retrieved document from the stream. */
+
+			Scanner s = new Scanner(is).useDelimiter("\\A");
+			result = s.hasNext() ? s.next() : "";
+			s.close();
+			
+		} finally {
+		  is.close();
+		}
+		
+		
+		return result ;
+	}
+
+	
+	public String solanaMarketValues(long timeFrom, long timeTo) throws IOException {
+		
+
+		String result;
+		
+		URL url = new URL("https://api.coingecko.com/api/v3/coins/solana/market_chart/range?vs_currency=usd&from=" + timeFrom + "&to=" + timeTo);
 		InputStream is = url.openStream();
 		try {
 		  /* Now read the retrieved document from the stream. */

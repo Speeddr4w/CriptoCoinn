@@ -70,6 +70,24 @@
 					<h5 class="myDIV">${bnb_volume}</h5>
 				</div>
 			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Var. diária:</h3>
+					<h5>${bnb_variacaoDiaria_porcentagem}%</h5>
+				</div>
+			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Var. mensal:</h3>
+					<h5>${bnb_variacaoMensal_porcentagem}%</h5>
+				</div>
+			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Análise:</h3>
+					<h5>${bnb_analise}</h5>
+				</div>
+			</div>
 		</div>
 		<br>
 		<h3>O que é BNB ?</h3>
@@ -126,7 +144,8 @@ p {
 }
 
 .bg {
-	background-image: url("Fundo.png")
+	background-image: url("Fundo.png");
+	background-color: #778899;
 }
 /* Popup container - can be anything you want */
 .popup {

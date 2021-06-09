@@ -71,10 +71,29 @@
 			</div>
 			<div class="column">
 				<div id="atributos" class="card">
-					<h3>Total Volume:</h3>
-					<h5 class="myDIV">${ada_volume}</h5>
+					<h3>Volume Total:</h3>
+					<h5>${ada_volume}</h5>
 				</div>
 			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Var. diária:</h3>
+					<h5>${ada_variacaoDiaria_porcentagem}%</h5>
+				</div>
+			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Var. mensal:</h3>
+					<h5>${ada_variacaoMensal_porcentagem}%</h5>
+				</div>
+			</div>
+			<div class="column">
+				<div id="atributos" class="card">
+					<h3>Análise:</h3>
+					<h5>${ada_analise}</h5>
+				</div>
+			</div>
+			
 		</div>
 		<br>
 		<h3>Introdução</h3>
@@ -148,7 +167,8 @@ p {
 }
 
 .bg {
-	background-image: url("Fundo.png")
+	background-image: url("Fundo.png");
+	background-color: #778899;
 }
 /* Popup container - can be anything you want */
 .popup {
@@ -222,7 +242,7 @@ to {
 .column {
 	float: left;
 	width: 25%;
-	padding: 0 9px;
+	padding: 9px;
 }
 /* Remove extra left and right margins, due to padding*/
 .row {
@@ -259,6 +279,7 @@ div.sticky {
 }
 
 .card {
+
 	background-color: #696969;
 	color: gold;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
